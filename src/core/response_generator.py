@@ -56,7 +56,7 @@ def generate_response(user_prompt: str, retrieved_data: str) -> str:
     response.raise_for_status()
     data = response.json()
 
-    print("\n--- FULL RESPONSE JSON ---")
-    print(data)
+    #print("\n--- FULL RESPONSE JSON ---")
+    #print(data)
 
     return data.get("response", "").strip()

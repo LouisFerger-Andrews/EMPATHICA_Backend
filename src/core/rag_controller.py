@@ -11,6 +11,9 @@ from .response_generator import generate_response
 
 from src.drug_lookup.match_fhir_to_drugs import match_fhir_medication
 from src.drug_lookup.query_drug_knowledge import get_drug_knowledge
+from src.core.memory import PromptMemory
+memory = PromptMemory()
+
 
 DEFAULT_PATIENT_ID = os.getenv("DEFAULT_PATIENT_ID", "emily")
 
@@ -26,19 +29,16 @@ CATEGORY_GETTERS = {
 
 def rag_inference(user_prompt: str) -> Dict[str, Any]:
     route = route_prompt(user_prompt)
-    fn = route.get("function")  # ← keep "function" to match your router
+    fn = route.get("function")
     args = route.get("arguments", {})
 
     if fn == FUNCTION_FHIR:
         pid = args.get("patient", DEFAULT_PATIENT_ID)
         categories = args.get("categories", [])
-
-        # Fetch patient bundle
         path = build_query([], {"patient": pid})
-        bundle_data = fetch_fhir_resources(path)  # returns full FHIR Bundle
-        bundle = [entry["resource"] for entry in bundle_data.get("entry", [])]  # flat list of resources
+        bundle_data = fetch_fhir_resources(path)
+        bundle = [entry["resource"] for entry in bundle_data.get("entry", [])]
 
-        # FHIR section assembly
         parts = []
         for cat in categories:
             getter = CATEGORY_GETTERS.get(cat)
@@ -47,25 +47,31 @@ def rag_inference(user_prompt: str) -> Dict[str, Any]:
 
         retrieved_data = "\n\n".join(parts) or "No data found."
 
-        # Add drug facts if we're getting current medications
-        if "currentMedications" in categories:
-            drug_facts = []
-            med_resources = [r for r in bundle if r.get("resourceType") == "Medication"]
-            for med in med_resources:
-                match = match_fhir_medication(med)
-                if match:
+        # Always fetch drug facts — but only use them if relevant
+        drug_facts = []
+        med_resources = [r for r in bundle if r.get("resourceType") == "Medication"]
+        for med in med_resources:
+            match = match_fhir_medication(med)
+            if match:
+                name = match['name']
+                if not memory.already_mentioned(name):
                     drug_info = get_drug_knowledge(match["slug_id"])
                     if drug_info:
-                        drug_facts.append(f"• {match['name']}:\n{drug_info}")
+                        drug_facts.append(f"• {name}:\n{drug_info}")
+                        memory.remember_drug(name)
 
+        # Only append drug facts if the user prompt mentions medication-related keywords
+        drug_keywords = ["drug", "med", "side effect", "dosage", "pill", "prescription"]
+        if any(kw in user_prompt.lower() for kw in drug_keywords):
             if drug_facts:
                 retrieved_data += "\n\n--- Drug Information ---\n" + "\n\n".join(drug_facts)
 
-        print("\n--- RAG RETRIEVED DATA ---")
-        print(retrieved_data)
 
         final_response = generate_response(user_prompt, retrieved_data)
+        memory.update(user_prompt, final_response)
+
         return {"source": "fhir", "response": final_response}
+
 
     elif fn == FUNCTION_DRUG:
         drug = args.get("drug_name")
