@@ -1,0 +1,691 @@
+{
+  "resourceType": "Bundle",
+  "id": "mary-persona",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:composition-mary",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "composition-mary",
+        "status": "final",
+        "type": {
+          "coding": [{
+            "system": "http://loinc.org",
+            "code": "60591-5",
+            "display": "Patient Summary"
+          }]
+        },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "date": "2025-07-28T00:00:00Z",
+        "title": "Mary (María) Rodríguez Johnson – Persona & Medical Profile",
+        "author": [{ "display": "med_assistant" }],
+        "section": [{
+          "title": "Full Persona Narrative",
+          "text": {
+            "status": "additional",
+            "div": "<div>Name: Mary (María) Johnson (née Rodríguez)…[full narrative as provided above]</div>"
+          }
+        }]
+      },
+      "request": { "method": "POST", "url": "Composition" }
+    },
+    {
+      "fullUrl": "urn:uuid:patient-mary",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "mary",
+        "name": [
+          {
+            "use": "official",
+            "family": "Johnson",
+            "given": ["Mary"],
+            "text": "Mary (María) Rodríguez Johnson"
+          },
+          {
+            "use": "nickname",
+            "given": ["María"]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1952-09-12",
+        "address": [{
+          "use": "home",
+          "city": "Stillwater",
+          "state": "OK",
+          "country": "USA"
+        }],
+        "extension": [
+          { "url": "http://example.org/fhir/ethnicity", "valueString": "Hispanic/Latina (Cuban)" },
+          { "url": "http://example.org/fhir/citizenship", "valueString": "US" },
+          { "url": "http://example.org/fhir/origin-country", "valueString": "Cuba" }
+        ]
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "hypertension",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Hypertension" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "1999-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "diabetes",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Type 2 Diabetes" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2004-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "back-pain",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Chronic Lower Back Pain" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2007-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "osteoarthritis",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Osteoarthritis" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2009-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-5",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "gerd",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Gastroesophageal Reflux Disease (GERD)" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2012-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-6",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "insomnia",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Chronic Insomnia" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2015-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-7",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "osteoporosis",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Osteoporosis" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2017-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-8",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "depression",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Major Depressive Disorder" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2018-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-9",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "anxiety",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Generalized Anxiety Disorder" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2018-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-10",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "neuropathy",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Peripheral Neuropathy" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2019-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-11",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cognitive-impairment",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Mild Cognitive Impairment" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2021-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-12",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "breast-cancer",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Stage IV HR+/HER2- Metastatic Breast Cancer" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2022-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-13",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "lymphedema",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Lymphedema in Left Arm" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2022-06-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-14",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "fatigue",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Chronic Fatigue" },
+        "clinicalStatus": { "coding": [{ "code": "active" }] },
+        "onsetDateTime": "2022-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:allergy-1",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergy-penicillin",
+        "patient": { "reference": "urn:uuid:patient-mary" },
+        "substance": { "text": "Penicillin" },
+        "reaction": [{ "manifestation": [{ "text": "Hives, facial swelling, difficulty breathing" }] }],
+        "status": "active"
+      },
+      "request": { "method": "POST", "url": "AllergyIntolerance" }
+    },
+    {
+      "fullUrl": "urn:uuid:allergy-2",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergy-latex",
+        "patient": { "reference": "urn:uuid:patient-mary" },
+        "substance": { "text": "Latex" },
+        "reaction": [{ "manifestation": [{ "text": "Contact dermatitis, itching, mild wheezing" }] }],
+        "status": "active"
+      },
+      "request": { "method": "POST", "url": "AllergyIntolerance" }
+    },
+    {
+      "fullUrl": "urn:uuid:allergy-3",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergy-shellfish",
+        "patient": { "reference": "urn:uuid:patient-mary" },
+        "substance": { "text": "Shellfish" },
+        "reaction": [{ "manifestation": [{ "text": "Anaphylaxis: swelling, severe breathing difficulty, hypotension" }] }],
+        "status": "active"
+      },
+      "request": { "method": "POST", "url": "AllergyIntolerance" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-letrozole",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "letrozole",
+        "code": { "text": "Letrozole 2.5 mg tablet" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-palbociclib",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "palbociclib",
+        "code": { "text": "Palbociclib 125 mg capsule" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-metformin",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "metformin",
+        "code": { "text": "Metformin ER 1000 mg tablet" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-sitagliptin",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "sitagliptin",
+        "code": { "text": "Sitagliptin 100 mg tablet" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-lisinopril",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "lisinopril",
+        "code": { "text": "Lisinopril 20 mg tablet" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-acetaminophen",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "acetaminophen",
+        "code": { "text": "Acetaminophen 325 mg tablet" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-sertraline",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "sertraline",
+        "code": { "text": "Sertraline 50 mg tablet" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-denosumab",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "denosumab",
+        "code": { "text": "Denosumab 60 mg injection" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-gabapentin",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "gabapentin",
+        "code": { "text": "Gabapentin 600 mg tablet" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-calcium-d3",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "calcium-d3",
+        "code": { "text": "Calcium 600 mg + Vitamin D3 800 IU tablet" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-multivitamin",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "multivitamin",
+        "code": { "text": "Multivitamin for seniors" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-glucosamine",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "glucosamine",
+        "code": { "text": "Glucosamine HCl 1500 mg + Chondroitin 1200 mg tablet" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-melatonin",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "melatonin",
+        "code": { "text": "Melatonin 3 mg tablet" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-artificial-tears",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "artificial-tears",
+        "code": { "text": "Systane Ultra Lubricant Eye Drops" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-docusate",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "docusate",
+        "code": { "text": "Docusate Sodium 100 mg capsule" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-omeprazole",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "omeprazole",
+        "code": { "text": "Omeprazole 20 mg capsule" }
+      },
+      "request": { "method": "POST", "url": "Medication" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-letrozole",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-letrozole" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-palbociclib",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-palbociclib" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-metformin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-metformin" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-sitagliptin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-sitagliptin" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-lisinopril",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-lisinopril" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-acetaminophen",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-acetaminophen" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-sertraline",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-sertraline" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-denosumab",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-denosumab" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-gabapentin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-gabapentin" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-calcium-d3",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-calcium-d3" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-multivitamin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-multivitamin" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-glucosamine",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-glucosamine" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-melatonin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-melatonin" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-artificial-tears",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-artificial-tears" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-docusate",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-docusate" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:stmt-omeprazole",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationReference": { "reference": "urn:uuid:med-omeprazole" },
+        "effectivePeriod": { "start": "2025-07-28" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-cbc",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "cbc-oct-2024",
+        "status": "final",
+        "category": [{ "coding": [{ "code": "laboratory" }] }],
+        "code": { "text": "Complete Blood Count" },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "effectiveDateTime": "2024-10-01",
+        "component": [
+          { "code": { "text": "WBC" }, "valueQuantity": { "value": 3.8, "unit": "10^9/L" } },
+          { "code": { "text": "RBC" }, "valueQuantity": { "value": 3.6, "unit": "10^12/L" } },
+          { "code": { "text": "Hemoglobin" }, "valueQuantity": { "value": 10.8, "unit": "g/dL" } },
+          { "code": { "text": "Hematocrit" }, "valueQuantity": { "value": 32, "unit": "%" } },
+          { "code": { "text": "Platelets" }, "valueQuantity": { "value": 140, "unit": "10^9/L" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-cmp",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "cmp-oct-2024",
+        "status": "final",
+        "category": [{ "coding": [{ "code": "laboratory" }] }],
+        "code": { "text": "Comprehensive Metabolic Panel" },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "effectiveDateTime": "2024-10-01",
+        "component": [
+          { "code": { "text": "Glucose (Fasting)" }, "valueQuantity": { "value": 142, "unit": "mg/dL" } },
+          { "code": { "text": "Creatinine" }, "valueQuantity": { "value": 1.2, "unit": "mg/dL" } },
+          { "code": { "text": "eGFR" }, "valueQuantity": { "value": 52, "unit": "mL/min/1.73m2" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:careplan-mary",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "mary-careplan",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "title": "6‑month Scheduled Appointments & Therapies",
+        "activity": [
+          {
+            "detail": {
+              "code": { "text": "Monthly oncology follow‑up" },
+              "status": "scheduled",
+              "scheduledPeriod": { "start": "2024-11-01", "end": "2025-04-30" }
+            }
+          },
+          {
+            "detail": {
+              "code": { "text": "Monthly Complete Blood Count" },
+              "status": "scheduled",
+              "scheduledPeriod": { "start": "2024-11-01", "end": "2025-04-30" }
+            }
+          },
+          {
+            "detail": {
+              "code": { "text": "Quarterly endocrinology visit" },
+              "status": "scheduled",
+              "scheduledPeriod": { "start": "2024-11-01", "end": "2025-04-30" }
+            }
+          },
+          {
+            "detail": {
+              "code": { "text": "Bi‑annual cardiology check‑up" },
+              "status": "scheduled",
+              "scheduledPeriod": { "start": "2024-11-01", "end": "2025-04-30" }
+            }
+          },
+          {
+            "detail": {
+              "code": { "text": "Weekly physical therapy session" },
+              "status": "scheduled",
+              "scheduledPeriod": { "start": "2024-11-01", "end": "2025-04-30" }
+            }
+          },
+          {
+            "detail": {
+              "code": { "text": "Bi‑annual dental visit" },
+              "status": "scheduled",
+              "scheduledPeriod": { "start": "2024-11-01", "end": "2025-04-30" }
+            }
+          },
+          {
+            "detail": {
+              "code": { "text": "Monthly home health nurse visit" },
+              "status": "scheduled",
+              "scheduledPeriod": { "start": "2024-11-01", "end": "2025-04-30" }
+            }
+          }
+        ]
+      },
+      "request": { "method": "POST", "url": "CarePlan" }
+    }
+  ]
+}

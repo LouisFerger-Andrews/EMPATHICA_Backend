@@ -1,0 +1,758 @@
+{
+  "resourceType": "Bundle",
+  "id": "mary-persona",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:composition-mary",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "composition-mary",
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "60591-5",
+              "display": "Patient Summary"
+            }
+          ]
+        },
+        "title": "Mary (María) Rodríguez Johnson – Persona & Medical Profile",
+        "date": "2025-07-28T00:00:00Z",
+        "author": [
+          { "display": "med_assistant" }
+        ],
+        "subject": {
+          "reference": "urn:uuid:patient-mary"
+        },
+        "section": [
+          {
+            "title": "Full Persona Narrative",
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Name:</b> Mary (María) Johnson (née Rodríguez). Prefers “Mary” socially but loves when close family use “María”. Introduces herself as “Mary Rodríguez Johnson” to honor both her Cuban heritage and American life.</p><p><b>Age:</b> 72 (born 1952-09-12). Often jokes she's “72 years young”.</p><p><b>Gender:</b> Female</p><p><b>Origin:</b> Havana, Cuba. <b>Ethnicity:</b> Hispanic/Latina (Cuban). <b>Citizenship:</b> USA (naturalized in her 30s).</p><p><b>Location:</b> Stillwater, Oklahoma (~50,000). Quiet neighborhood; misses big-city vibrancy but enjoys small-town calm.</p><p><b>Mary’s Story:</b></p><ul><li>Grew up in Vedado, Havana; colorful two-story home with courtyard—stories she shares with grandkids.</li><li>Left Cuba in 1980 at 28, painful separation from parents/siblings.</li><li>Started in Miami: cook in Cuban restaurant, learned English, kept traditions.</li><li>Met Robert Johnson (American) in 1982; married, lived 15 years in Little Havana.</li><li>Children: Sarah (b.1985) &amp; Michael (b.1987).</li><li>Moved to Oklahoma in 1995 (she was 40) for Robert’s job; culture shock but adapted.</li></ul><blockquote>“Moving to Oklahoma in '95... it was a big change. Sarah was 10, had her friends. Michael was 8. We brought our culture with us—I made sure they knew both worlds.”</blockquote><p><b>Family:</b> Widowed (Robert died 2019 of MI at 67). She still talks to his photo daily. Sarah (39) nearby—primary caregiver/advocate. Michael (37) in OKC—handles finances/tech, visits biweekly, calls nightly. Grandchildren: Emily (11), Alex (8), Sophia (5).</p><p><b>Education:</b> High school + Escuela Nacional de Arte (dance/music). ESL &amp; culinary courses in US, later evening culinary classes in OK.</p><p><b>Languages:</b> Native Spanish (Cuban dialect). Conversational English; struggles with medical English &amp; long documents. Relies on Sarah for complex appointments.</p><p><b>Employment:</b> Retired caterer (“Sabor de La Habana”) 20 yrs; former salsa instructor (stopped due to arthritis). Income ~$1,600/mo (SS + small pension); kids help with extras.</p><p><b>Psychosocial/Digital Literacy:</b> Low health &amp; digital literacy, social isolation, anxiety, occasional depression. Uses simple phone/tablet with family support. Bluetooth BP monitor &amp; glucometer sync to app; Sarah watches readings.</p><p><b>Challenges:</b> Chronic pain, fatigue, mobility limits, complex med regimen, reading fatigue, tech frustration, financial stress, fear of being a burden, mild cognitive issues.</p><p><b>Bright Spots:</b> Strong family ties, cultural pride, resilience, faith, sharing recipes, clinical trial participation, online Spanish cancer group, porch chats with neighbors.</p><p><b>Healthcare Team:</b> PCP, Oncologist, Endocrinologist, Cardiologist, Rheumatologist, Pain specialist, Mental health professional, Dentist, Pharmacist, Home health nurse.</p><p><b>Medication Routine:</b> Weekly pill organizer (Sarah fills). Morning &amp; evening doses; sometimes forgets midday. Needs clear, bilingual guides &amp; visual aids.</p><p><b>Insurance:</b> Medicare + supplement. Co-pays high for cancer meds; exploring assistance programs.</p><p><b>Labs &amp; Monitoring:</b> See Observations. Issues: uncontrolled BP, mild anemia, suboptimal diabetes control, mild CKD, dyslipidemia, low Vit D, elevated tumor markers.</p><p><b>Allergies:</b> Penicillin (moderate, hives/angioedema/ SOB; wears bracelet, carries EpiPen), Latex (mild dermatitis/wheezing; needs latex-free), Shellfish (severe anaphylaxis; strict avoidance, caution with contrast dye).</p><p><b>6-Month Schedule:</b> Monthly oncology &amp; CBC, quarterly PCP/endocrine, rheum q6mo, pain specialist q3mo, home health nurse twice monthly, PT weekly for lymphedema, lab panels per condition (see CarePlan).</p></div>"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Composition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:patient-mary",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "mary",
+        "name": [
+          {
+            "use": "official",
+            "family": "Johnson",
+            "given": ["Mary"],
+            "text": "Mary (María) Rodríguez Johnson"
+          },
+          {
+            "use": "nickname",
+            "given": ["María"]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1952-09-12",
+        "telecom": [
+          { "system": "phone", "value": "555-123-4567", "use": "home" }
+        ],
+        "address": [
+          {
+            "use": "home",
+            "city": "Stillwater",
+            "state": "OK",
+            "postalCode": "74074",
+            "country": "US"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://example.org/fhir/StructureDefinition/origin-country",
+            "valueString": "Cuba"
+          },
+          {
+            "url": "http://example.org/fhir/StructureDefinition/ethnicity",
+            "valueString": "Hispanic/Latina (Cuban)"
+          },
+          {
+            "url": "http://example.org/fhir/StructureDefinition/citizenship",
+            "valueString": "US"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:cond-htn",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "htn",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Hypertension" },
+        "onsetDateTime": "1999-01-01",
+        "clinicalStatus": { "coding": [{ "system":"http://terminology.hl7.org/CodeSystem/condition-clinical","code":"active"}]}
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-t2dm",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "t2dm",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Type 2 Diabetes" },
+        "onsetDateTime": "2004-01-01",
+        "clinicalStatus": { "coding": [{ "system":"http://terminology.hl7.org/CodeSystem/condition-clinical","code":"active"}]}
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-backpain",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "backpain",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Chronic Lower Back Pain" },
+        "onsetDateTime": "2007-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-oa",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "osteoarthritis",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Osteoarthritis" },
+        "onsetDateTime": "2009-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-gerd",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "gerd",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Gastroesophageal Reflux Disease (GERD)" },
+        "onsetDateTime": "2012-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-insomnia",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "insomnia",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Chronic Insomnia" },
+        "onsetDateTime": "2015-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-osteoporosis",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "osteoporosis",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Osteoporosis" },
+        "onsetDateTime": "2017-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-mdd",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "mdd",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Major Depressive Disorder" },
+        "onsetDateTime": "2018-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-gad",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "gad",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Generalized Anxiety Disorder" },
+        "onsetDateTime": "2018-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-pn",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "peripheral-neuropathy",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Peripheral Neuropathy" },
+        "onsetDateTime": "2019-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-mci",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "mci",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Mild Cognitive Impairment" },
+        "onsetDateTime": "2021-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-mbc",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "metastatic-breast-cancer",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Stage IV HR+/HER2- Metastatic Breast Cancer" },
+        "onsetDateTime": "2022-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-lymphedema",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "lymphedema",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Lymphedema in Left Arm" },
+        "onsetDateTime": "2022-06-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-fatigue",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "chronic-fatigue",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "code": { "text": "Chronic Fatigue" },
+        "onsetDateTime": "2022-01-01",
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:allergy-pcn",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "penicillin-allergy",
+        "patient": { "reference": "urn:uuid:patient-mary" },
+        "code": {
+          "text": "Penicillin",
+          "coding": [
+            { "system": "http://snomed.info/sct", "code": "294505008", "display": "Allergy to penicillin" }
+          ]
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              { "text": "Hives" },
+              { "text": "Facial swelling" },
+              { "text": "Difficulty breathing" }
+            ],
+            "severity": "moderate"
+          }
+        ],
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "AllergyIntolerance" }
+    },
+    {
+      "fullUrl": "urn:uuid:allergy-latex",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "latex-allergy",
+        "patient": { "reference": "urn:uuid:patient-mary" },
+        "code": {
+          "text": "Latex",
+          "coding": [
+            { "system": "http://snomed.info/sct", "code": "300916003", "display": "Allergy to latex" }
+          ]
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              { "text": "Contact dermatitis" },
+              { "text": "Itching" },
+              { "text": "Mild wheezing" }
+            ],
+            "severity": "mild"
+          }
+        ],
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "AllergyIntolerance" }
+    },
+    {
+      "fullUrl": "urn:uuid:allergy-shellfish",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "shellfish-allergy",
+        "patient": { "reference": "urn:uuid:patient-mary" },
+        "code": {
+          "text": "Shellfish",
+          "coding": [
+            { "system": "http://snomed.info/sct", "code": "419474003", "display": "Allergy to shellfish" }
+          ]
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              { "text": "Anaphylaxis" },
+              { "text": "Severe breathing difficulty" },
+              { "text": "Hypotension" }
+            ],
+            "severity": "severe"
+          }
+        ],
+        "clinicalStatus": { "coding": [{ "code":"active" }] }
+      },
+      "request": { "method": "POST", "url": "AllergyIntolerance" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:ms-letrozole",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-letrozole",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Letrozole (Femara) 2.5 mg once daily" },
+        "dosage": [ { "text": "2.5 mg PO daily; with or without food" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-palbociclib",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-palbociclib",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Palbociclib (Ibrance) 125 mg daily, 21 days on/7 days off" },
+        "dosage": [ { "text": "125 mg PO daily x21 days, then 7 days off; take with food; avoid grapefruit" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-metformin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-metformin",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Metformin ER (GLUMETZA) 1000 mg twice daily" },
+        "dosage": [ { "text": "1000 mg PO BID with meals; swallow whole" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-sitagliptin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-sitagliptin",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Sitagliptin (Januvia) 100 mg once daily" },
+        "dosage": [ { "text": "100 mg PO daily; with or without food" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-lisinopril",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-lisinopril",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Lisinopril (Zestril) 20 mg once daily" },
+        "dosage": [ { "text": "20 mg PO daily; with or without food" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-acetaminophen",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-acetaminophen",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Acetaminophen (Tylenol) 325 mg as needed" },
+        "dosage": [ { "text": "650 mg (2 x 325 mg) q4-6h PRN pain; max 3000 mg/day; ≤10 days unless directed" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-sertraline",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-sertraline",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Sertraline (Zoloft) 50 mg once daily" },
+        "dosage": [ { "text": "50 mg PO daily in the morning" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-denosumab",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-denosumab",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Denosumab (Prolia) 60 mg SC every 6 months" },
+        "dosage": [ { "text": "60 mg SC q6 months; administered by provider" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-gabapentin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-gabapentin",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Gabapentin (Horizant) 600 mg once daily" },
+        "dosage": [ { "text": "600 mg ER PO daily at ~5 PM with food" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-calciumd",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-calciumd",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Calcium + Vitamin D3 600 mg/800 IU twice daily" },
+        "dosage": [ { "text": "1 tab PO BID with food; separate from iron" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-mv",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-multivitamin",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Multivitamin (Centrum Women 50+) once daily" },
+        "dosage": [ { "text": "1 softgel PO daily with food; separate from calcium" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-glucosamine",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-glucosamine",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Glucosamine + Chondroitin twice daily" },
+        "dosage": [ { "text": "2 tablets PO daily with food" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-melatonin",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-melatonin",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Melatonin 3 mg as needed" },
+        "dosage": [ { "text": "3 mg SL 30–60 min before bed PRN" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-omeprazole",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-omeprazole",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Omeprazole (Prilosec) 20 mg once daily" },
+        "dosage": [ { "text": "20 mg PO daily before evening meal" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-artificialtears",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-artificialtears",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Artificial tears PRN" },
+        "dosage": [ { "text": "1–2 drops each eye PRN; wait 5 min between drops" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:ms-docusate",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "ms-docusate",
+        "status": "active",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "medicationCodeableConcept": { "text": "Docusate Sodium (Colace) 100 mg PRN" },
+        "dosage": [ { "text": "100 mg PO once or twice daily PRN; take with water" } ]
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:obs-vitals-oct2024",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vitals-oct-2024",
+        "status": "final",
+        "category": [ { "coding": [ { "code": "vital-signs", "system":"http://terminology.hl7.org/CodeSystem/observation-category"} ] } ],
+        "code": { "text": "Vital Signs" },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "effectiveDateTime": "2024-10-01",
+        "component": [
+          { "code": { "text": "Blood Pressure" }, "valueString": "145/90 mmHg" },
+          { "code": { "text": "Heart Rate" }, "valueQuantity": { "value": 78, "unit": "bpm" } },
+          { "code": { "text": "Respiratory Rate" }, "valueQuantity": { "value": 16, "unit": "breaths/min" } },
+          { "code": { "text": "Weight" }, "valueQuantity": { "value": 72.6, "unit": "kg" } },
+          { "code": { "text": "Height" }, "valueQuantity": { "value": 162.6, "unit": "cm" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-cbc-oct2024",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "cbc-oct-2024",
+        "status": "final",
+        "category": [ { "coding": [ { "code": "laboratory" } ] } ],
+        "code": { "text": "Complete Blood Count" },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "effectiveDateTime": "2024-10-01",
+        "component": [
+          { "code": { "text": "WBC" }, "valueQuantity": { "value": 3.8, "unit": "10^9/L" } },
+          { "code": { "text": "RBC" }, "valueQuantity": { "value": 3.6, "unit": "10^12/L" } },
+          { "code": { "text": "Hemoglobin" }, "valueQuantity": { "value": 10.8, "unit": "g/dL" } },
+          { "code": { "text": "Hematocrit" }, "valueQuantity": { "value": 32, "unit": "%" } },
+          { "code": { "text": "Platelets" }, "valueQuantity": { "value": 140, "unit": "10^9/L" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-cmp-oct2024",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "cmp-oct-2024",
+        "status": "final",
+        "category": [ { "coding": [ { "code": "laboratory" } ] } ],
+        "code": { "text": "Comprehensive Metabolic Panel" },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "effectiveDateTime": "2024-10-01",
+        "component": [
+          { "code": { "text": "Glucose (fasting)" }, "valueQuantity": { "value": 142, "unit": "mg/dL" } },
+          { "code": { "text": "Creatinine" }, "valueQuantity": { "value": 1.2, "unit": "mg/dL" } },
+          { "code": { "text": "eGFR" }, "valueQuantity": { "value": 52, "unit": "mL/min/1.73m^2" } },
+          { "code": { "text": "ALT" }, "valueQuantity": { "value": 35, "unit": "U/L" } },
+          { "code": { "text": "AST" }, "valueQuantity": { "value": 28, "unit": "U/L" } },
+          { "code": { "text": "Albumin" }, "valueQuantity": { "value": 3.4, "unit": "g/dL" } },
+          { "code": { "text": "Calcium" }, "valueQuantity": { "value": 9.2, "unit": "mg/dL" } },
+          { "code": { "text": "Sodium" }, "valueQuantity": { "value": 138, "unit": "mEq/L" } },
+          { "code": { "text": "Potassium" }, "valueQuantity": { "value": 4.2, "unit": "mEq/L" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-a1c-oct2024",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "hba1c-oct-2024",
+        "status": "final",
+        "category": [ { "coding": [ { "code": "laboratory" } ] } ],
+        "code": { "text": "Hemoglobin A1c" },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "effectiveDateTime": "2024-10-01",
+        "valueQuantity": { "value": 7.2, "unit": "%" }
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-lipid-oct2024",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "lipid-oct-2024",
+        "status": "final",
+        "category": [ { "coding": [ { "code": "laboratory" } ] } ],
+        "code": { "text": "Lipid Panel" },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "effectiveDateTime": "2024-10-01",
+        "component": [
+          { "code": { "text": "Total Cholesterol" }, "valueQuantity": { "value": 210, "unit": "mg/dL" } },
+          { "code": { "text": "LDL" }, "valueQuantity": { "value": 130, "unit": "mg/dL" } },
+          { "code": { "text": "HDL" }, "valueQuantity": { "value": 45, "unit": "mg/dL" } },
+          { "code": { "text": "Triglycerides" }, "valueQuantity": { "value": 175, "unit": "mg/dL" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-thyroid-oct2024",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "thyroid-oct-2024",
+        "status": "final",
+        "category": [ { "coding": [ { "code": "laboratory" } ] } ],
+        "code": { "text": "Thyroid Function Tests" },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "effectiveDateTime": "2024-10-01",
+        "component": [
+          { "code": { "text": "TSH" }, "valueQuantity": { "value": 3.8, "unit": "mIU/L" } },
+          { "code": { "text": "Free T4" }, "valueQuantity": { "value": 1.1, "unit": "ng/dL" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-tumormarkers-oct2024",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "tumor-markers-oct-2024",
+        "status": "final",
+        "category": [ { "coding": [ { "code": "laboratory" } ] } ],
+        "code": { "text": "Tumor Markers" },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "effectiveDateTime": "2024-10-01",
+        "component": [
+          { "code": { "text": "CA 15-3" }, "valueQuantity": { "value": 45, "unit": "U/mL" } },
+          { "code": { "text": "CEA" }, "valueQuantity": { "value": 8, "unit": "ng/mL" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-vitd-ferritin-oct2024",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "vitd-ferritin-oct-2024",
+        "status": "final",
+        "category": [ { "coding": [ { "code": "laboratory" } ] } ],
+        "code": { "text": "Vitamin D and Ferritin" },
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "effectiveDateTime": "2024-10-01",
+        "component": [
+          { "code": { "text": "Vitamin D, 25-Hydroxy" }, "valueQuantity": { "value": 28, "unit": "ng/mL" } },
+          { "code": { "text": "Ferritin" }, "valueQuantity": { "value": 45, "unit": "ng/mL" } },
+          { "code": { "text": "Vitamin B12" }, "valueQuantity": { "value": 350, "unit": "pg/mL" } },
+          { "code": { "text": "Folate" }, "valueQuantity": { "value": 12, "unit": "ng/mL" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+
+    {
+      "fullUrl": "urn:uuid:careplan-mary",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "mary-careplan",
+        "status": "active",
+        "title": "6-month scheduled appointments",
+        "subject": { "reference": "urn:uuid:patient-mary" },
+        "activity": [
+          {
+            "detail": {
+              "status": "scheduled",
+              "code": { "text": "Monthly oncology appointment" },
+              "scheduledTiming": { "repeat": { "frequency": 1, "period": 1, "periodUnit": "mo" } }
+            }
+          },
+          {
+            "detail": {
+              "status": "scheduled",
+              "code": { "text": "Monthly CBC lab draw" },
+              "scheduledTiming": { "repeat": { "frequency": 1, "period": 1, "periodUnit": "mo" } }
+            }
+          },
+          {
+            "detail": {
+              "status": "scheduled",
+              "code": { "text": "Quarterly PCP visit" },
+              "scheduledTiming": { "repeat": { "frequency": 1, "period": 3, "periodUnit": "mo" } }
+            }
+          },
+          {
+            "detail": {
+              "status": "scheduled",
+              "code": { "text": "Quarterly Endocrinologist follow-up" },
+              "scheduledTiming": { "repeat": { "frequency": 1, "period": 3, "periodUnit": "mo" } }
+            }
+          },
+          {
+            "detail": {
+              "status": "scheduled",
+              "code": { "text": "Bi-annual Cardiologist check-up" },
+              "scheduledTiming": { "repeat": { "frequency": 1, "period": 6, "periodUnit": "mo" } }
+            }
+          },
+          {
+            "detail": {
+              "status": "scheduled",
+              "code": { "text": "Weekly Physical Therapy (lymphedema)" },
+              "scheduledTiming": { "repeat": { "frequency": 1, "period": 1, "periodUnit": "wk" } }
+            }
+          },
+          {
+            "detail": {
+              "status": "scheduled",
+              "code": { "text": "Home health nurse visit (twice monthly)" },
+              "scheduledTiming": { "repeat": { "frequency": 2, "period": 1, "periodUnit": "mo" } }
+            }
+          },
+          {
+            "detail": {
+              "status": "scheduled",
+              "code": { "text": "Mental health check (biannual)" },
+              "scheduledTiming": { "repeat": { "frequency": 2, "period": 1, "periodUnit": "yr" } }
+            }
+          }
+        ]
+      },
+      "request": { "method": "POST", "url": "CarePlan" }
+    }
+  ]
+}
