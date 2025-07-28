@@ -1,0 +1,12 @@
+# router.modelfile.yaml
+model: llama3
+adapter:
+  type: lora
+  r: 8
+  alpha: 32
+  dropout: 0.1
+train:
+  dataset: router_dataset.jsonl
+  epochs: 4
+  batch_size: 8
+  learning_rate: 2e-5
