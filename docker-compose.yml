@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    container_name: empathica-app
+    env_file: .env        # create this if you use secrets/keys
+    ports:
+      - "8000:8000"       # local test
+    restart: unless-stopped
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: cf-tunnel
+    depends_on:
+      - app
+    command: tunnel run --token ${CF_TUNNEL_TOKEN}
+    env_file: .env
+    restart: unless-stopped
