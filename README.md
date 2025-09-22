@@ -1,3 +1,4 @@
+
 # EMPATHICA\_Backend – 5‑Minute Quickstart
 
 A **copy/paste friendly** guide to get the project running locally: create the drug DB, build FAISS indexes, load FHIR bundles, and test the RAG pipeline.
